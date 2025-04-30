@@ -11,7 +11,7 @@ class EmpresaTerceirizada extends Model
 
     protected $fillable = [
         'nome',
-        'nome_resposnavel',
+        'nome_responsavel',
         'telefone',
     ];
 

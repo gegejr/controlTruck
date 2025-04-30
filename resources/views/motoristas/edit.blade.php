@@ -19,6 +19,28 @@
                 <input type="email" name="email" value="{{ old('email', $motorista->email) }}" class="w-full border rounded p-2" required>
             </div>
 
+            <div class="mb-4">
+                <label class="block mb-1">Nova Senha (opcional)</label>
+                <input type="password" name="password" class="w-full border rounded p-2">
+            </div>
+
+            <div class="mb-4">
+                <label class="block mb-1">Confirme a nova senha</label>
+                <input type="password" name="password_confirmation" class="w-full border rounded p-2">
+            </div>
+
+            <div class="mb-4">
+                <label class="block mb-1">Caminhão</label>
+                <select name="caminhao_id" class="w-full border rounded p-2">
+                    <option value="">-- Selecione um caminhão --</option>
+                    @foreach($caminhoes as $caminhao)
+                        <option value="{{ $caminhao->id }}" {{ $motorista->caminhao_id == $caminhao->id ? 'selected' : '' }}>
+                            {{ $caminhao->placa }} - {{ $caminhao->modelo ?? '' }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
             <div class="flex justify-end">
                 <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">
                     Atualizar

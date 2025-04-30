@@ -29,6 +29,7 @@
                 @foreach($caminhoes as $caminhao)
                 <tr class="border-b">
                     <td class="px-4 py-2">{{ $caminhao->placa }}</td>
+                    <td class="px-4 py-2">{{ $caminhao->marca}}</td>
                     <td class="px-4 py-2">{{ $caminhao->modelo }}</td>
                     <td class="px-4 py-2">{{ $caminhao->ano }}</td>
                     <td class="px-4 py-2">

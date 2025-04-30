@@ -14,6 +14,11 @@
             </div>
 
             <div class="mb-4">
+                <label class="block mb-1">Marca</label>
+                <input type="text" name="marca" class="w-full border rounded p-2" required>
+            </div>
+
+            <div class="mb-4">
                 <label class="block mb-1">Modelo</label>
                 <input type="text" name="modelo" class="w-full border rounded p-2" required>
             </div>

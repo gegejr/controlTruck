@@ -24,4 +24,9 @@ class Eixo extends Model
     {
         return $this->hasMany(Movimentacao::class);
     }
+
+    public function getDescricaoAttribute()
+    {
+        return "{$this->eixo_numero}º eixo ({$this->lado})";
+    }
 }

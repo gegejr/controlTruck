@@ -21,7 +21,9 @@
                 <tr class="bg-gray-100 text-left">
                     <th class="px-4 py-2">Nome</th>
                     <th class="px-4 py-2">Email</th>
+                    <th class="px-4 py-2">Caminhão</th>
                     <th class="px-4 py-2">Ações</th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -29,6 +31,9 @@
                 <tr class="border-b">
                     <td class="px-4 py-2">{{ $motorista->name }}</td>
                     <td class="px-4 py-2">{{ $motorista->email }}</td>
+                    <td class="px-4 py-2">
+                        {{ $motorista->caminhao?->placa ?? 'Sem caminhão'}}
+                    </td>
                     <td class="px-4 py-2">
                         <a href="{{ route('motoristas.edit', $motorista) }}" class="text-blue-500 hover:underline mr-2">Editar</a>
 
@@ -45,9 +50,9 @@
 
                 @if($motoristas->isEmpty())
                 <tr>
-                    <td colspan="3" class="px-4 py-4 text-center text-gray-500">
-                        Nenhum motorista cadastrado.
-                    </td>
+                <td colspan="4" class="px-4 py-4 text-center text-gray-500">
+                    Nenhum motorista cadastrado.
+                </td>
                 </tr>
                 @endif
             </tbody>

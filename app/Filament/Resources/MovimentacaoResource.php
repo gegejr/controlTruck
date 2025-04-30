@@ -40,7 +40,7 @@ class MovimentacaoResource extends Resource
 
             Select::make('eixo_id')
                 ->label('Eixo')
-                ->relationship('eixo', 'eixo_numero')
+                ->relationship('eixo', 'descricao')
                 ->required(),
 
             Select::make('pneu_id')
@@ -81,7 +81,7 @@ class MovimentacaoResource extends Resource
                 TextColumn::make('motorista.name')->label('Motorista')->searchable(),
                 TextColumn::make('caminhao.placa')->label('Caminhão'),
                 TextColumn::make('eixo.eixo_numero')->label('Eixo'),
-                TextColumn::make('pneu.descricai')->label('Pneu'),
+                TextColumn::make('pneu.descricao')->label('Pneu'),
                 TextColumn::make('tipo_movimentacao')->label('Tipo'),
                 TextColumn::make('data_movimentacao')->label('Data')->date(),
             ])

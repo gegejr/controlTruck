@@ -24,6 +24,7 @@ class User extends Authenticatable implements JWTSubject
         'password',
         'tipo',
         'caminhao_id',
+    
 
     ];
 
@@ -62,7 +63,7 @@ class User extends Authenticatable implements JWTSubject
 
     public function scopeMotoristas($query)
     {
-        return $query->where('role', 'motorista');
+        return $query->where('tipo', 'motorista');
     }
 
     public function caminhao()

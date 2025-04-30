@@ -18,6 +18,8 @@ use Filament\Tables\Columns\TextColumn;
 
 class EixoResource extends Resource
 {
+    protected static ?string $navigationLabel = 'Eixos';
+    protected static ?string $modelLabel = 'Eixo';
     protected static ?string $model = Eixo::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';

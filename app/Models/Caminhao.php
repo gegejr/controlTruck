@@ -9,10 +9,14 @@ class Caminhao extends Model
 {
     use HasFactory;
 
+    // 👇 Adicione esta linha:
+    protected $table = 'caminhoes';
+
     protected $fillable = [
         'placa',
         'modelo',
         'ano',
+        'marca',
     ];
 
     public function eixos()
@@ -34,5 +38,4 @@ class Caminhao extends Model
     {
         return $this->hasOne(User::class, 'caminhao_id');
     }
-
 }
