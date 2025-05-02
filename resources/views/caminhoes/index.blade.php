@@ -20,6 +20,7 @@
             <thead>
                 <tr class="bg-gray-100 text-left">
                     <th class="px-4 py-2">Placa</th>
+                    <th class="px -4 py-2">Marca</th>
                     <th class="px-4 py-2">Modelo</th>
                     <th class="px-4 py-2">Ano</th>
                     <th class="px-4 py-2">Ações</th>

@@ -34,7 +34,7 @@ class MotoristaController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password, // será automaticamente criptografada no mutator
-            'role' => 'motorista', // esse é o campo correto
+            'tipo' => 'motorista', // esse é o campo correto
             'caminhao_id' => $request->caminhao_id,
         ]);
 

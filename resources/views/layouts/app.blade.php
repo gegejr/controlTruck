@@ -66,6 +66,7 @@
 
             <!-- Nome do usuário e botão logout -->
             <div class="flex items-center gap-4 ml-auto">
+                @auth
                 <span class="text-sm text-gray-700">Olá, {{ Auth::user()->name }}</span>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
@@ -74,6 +75,11 @@
                         <i data-lucide="log-out" class="w-4 h-4"></i> Sair
                     </button>
                 </form>
+                @endauth
+
+                @guest
+                    <a href="{{ route('login') }}" class="text-sm text-gray-700 hover::underline">Entrar</a>
+                @endguest
             </div>
         </header>
 
@@ -94,6 +100,7 @@
         <a href="{{ route('motoristas.index') }}" class="block text-gray-800 hover:underline">Motoristas</a>
         <a href="{{ route('caminhoes.index') }}" class="block text-gray-800 hover:underline">Caminhões</a>
         <hr>
+        @auth
         <p class="text-sm text-gray-600">Olá, {{ Auth::user()->name }}</p>
         <form method="POST" action="{{ route('logout') }}">
             @csrf
@@ -102,23 +109,37 @@
                 <i data-lucide="log-out" class="w-4 h-4 inline-block mr-1"></i> Sair
             </button>
         </form>
+        @endauth
     </div>
 </div>
 
 <!-- Scripts -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
+        // Ativa os ícones do Lucide
         if (window.lucide && typeof lucide.createIcons === 'function') {
-            lucide.createIcons(); // ✅ Corrige o erro
+            lucide.createIcons();
         }
-    });
 
-    sidebar.addEventListener('click', (e) => {
-        if (e.target === sidebar) {
-            sidebar.classList.add('hidden');
+        // Seleciona o botão e a sidebar
+        const sidebar = document.getElementById('mobileSidebar');
+        const toggleButton = document.getElementById('toggleSidebar');
+
+        // Adiciona eventos só se os elementos forem encontrados
+        if (sidebar && toggleButton) {
+            toggleButton.addEventListener('click', () => {
+                sidebar.classList.toggle('hidden');
+            });
+
+            sidebar.addEventListener('click', (e) => {
+                if (e.target === sidebar) {
+                    sidebar.classList.add('hidden');
+                }
+            });
         }
     });
 </script>
+
 
 <!-- Lucide icons (import e ativação no final do body) -->
 <script src="https://unpkg.com/lucide@0.270.0/dist/umd/lucide.min.js"></script>
